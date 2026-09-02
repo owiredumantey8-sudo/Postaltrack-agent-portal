@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useCallback, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const API = 'http://localhost:5000/api';
+const API = 'https://postaltrack-backend.onrender.com/api';
 
 const STATUS_META = {
   booked: { color: '#f59e0b', bg: '#fffbeb', label: 'Booked', tip: '⚠️ Needs pickup' },
