@@ -38,6 +38,14 @@ function Login() {
 
       const data = await res.json();
 
+      // Check if the request itself failed first (wrong password, user not found, server error, etc.)
+      if (!res.ok) {
+        setMessage('❌ ' + (data.message || "Login failed."));
+        setLoading(false);
+        return;
+      }
+
+      // Only after confirming login succeeded, check the role
       if (data.role !== "courier_agent") {
         setMessage("⛔ Access denied! This portal is for agents only.");
         setLoading(false);
